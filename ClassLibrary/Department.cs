@@ -8,6 +8,7 @@ namespace ClassLibrary
     {
         public string Name { get; set; }
         private int _employeeLimit;
+        private int _salaryLimit;
         public int EmployeeLimit
         {
             get => _employeeLimit; set
@@ -15,7 +16,13 @@ namespace ClassLibrary
                 _employeeLimit = value;
             }
         }
-        public int SalaryLimit { get; set; }
+        public int SalaryLimit
+        {
+            get => _salaryLimit; set
+            {
+                if (value <= 250) _salaryLimit = value;
+            }
+        }
         public Employee[] employees = new Employee[0];
 
         public void AddEmployee(Employee employee)
